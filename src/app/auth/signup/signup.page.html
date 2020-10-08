@@ -65,14 +65,28 @@
                   </ion-col>
               </ion-row>
               
-              <ion-row>
+            <ion-row>
               <ion-col>
                   <ion-button type="submit"
                               color="warning"
-                              shape="round">
-                      CREAR USUARIO
+                              expand="full"
+                              shape="round"
+                              strong>
+                      Crear usuario
                   </ion-button>
               </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button expand="round"
+                        shape="round"
+                        color="success"
+                        strong
+                        routerLink="/login">
+                    Ya tengo cuenta
+            </ion-button>
+
+            </ion-col>
           </ion-row>
           
           </form>
@@ -95,7 +109,8 @@
                         size="small"
                         fill="outline"
                         color="success"
-                        (click)="mostrarRegistro()">
+                        (click)="mostrarRegistro()"
+                        routerLink="/login">
               Ingresar
             </ion-button>
         </ion-col>
@@ -106,7 +121,8 @@
                       size="small"
                       fill="outline"
                       color="success"
-                      (click)="mostrarLogin()">
+                      (click)="mostrarLogin()"
+                      routerLink="/signup">
             Registrarme
           </ion-button>
         </ion-col>

@@ -47,8 +47,23 @@
             <ion-col>
               <ion-button type="submit"
                           color="warning"
-                          shape="round">
-                  LOGIN
+                          expand="full"
+                          shape="round"
+                          strong>
+                Iniciar sesión 
+              </ion-button>
+            </ion-col>
+            
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button expand="round"
+                          shape="round"
+                          color="success"
+                          strong
+                          routerLink="/signup">
+                      Crear una cuenta nueva
               </ion-button>
             </ion-col>
           </ion-row>
@@ -67,36 +82,3 @@
 
 
 </ion-content>
-
-
-<ion-footer no-border>
-  <ion-toolbar>
-    
-    <ion-row>
-
-      <ion-col>
-          <ion-button shape="round"
-                      expand="full"
-                      size="small"
-                      fill="outline"
-                      color="success"
-                      (click)="mostrarRegistro()">
-            Ingresar
-          </ion-button>
-      </ion-col>
-
-      <ion-col>
-        <ion-button shape="round"
-                    expand="full"
-                    size="small"
-                    fill="outline"
-                    color="success"
-                    (click)="mostrarLogin()">
-          Registrarme
-        </ion-button>
-      </ion-col>
-
-    </ion-row>
-
-  </ion-toolbar>
-</ion-footer>
