@@ -6,79 +6,73 @@
 
 <ion-content>
 
+  <div class="form-container ion-padding">
+    <form (ngSubmit)="login( fLogin )" #fLogin="ngForm">
+      <ion-grid fixed>
 
-  <ion-slides class="mainSlide" #slidePrincipal>
-    
-    <ion-slide>
-
-      <form (ngSubmit)="login( fLogin )" #fLogin="ngForm">
-        <ion-grid fixed>
-
-          <ion-row>
-            <ion-col>
-              <img src="./../../../assets/avatars/av-1.png">
-            </ion-col>
-          </ion-row>
-        
-          <ion-row>
-            <ion-col>
-              
-                <ion-list>
-                  
-                  <ion-item>
-                    <ion-label>Email</ion-label>
-                    <ion-input name="email"
-                                type="email"
-                                required></ion-input>
-                  </ion-item>
-
-                  <ion-item>
-                    <ion-label>Contraseña</ion-label>
-                    <ion-input name="password"
-                                type="password"
-                                required></ion-input>
-                  </ion-item>
-
-                </ion-list>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col>
-              <ion-button type="submit"
-                          color="warning"
-                          expand="full"
-                          shape="round"
-                          strong>
-                Iniciar sesión 
-              </ion-button>
-            </ion-col>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <img src="assets/avatars/av-1.png">
+          </ion-col>
+        </ion-row>
+      
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12" size-md="8" size-lg="6">
             
-          </ion-row>
+              <ion-list>
+                
+                <ion-item>
+                  <ion-label>Email</ion-label>
+                  <ion-input name="email"
+                              type="email"
+                              id="inputEmail"
+                              name="email"
+                              [(ngModel)]="user.email"
+                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                              #email="ngModel"
+                              required></ion-input>
+                </ion-item>
 
-          <ion-row>
-            <ion-col>
-              <ion-button expand="round"
-                          shape="round"
-                          color="success"
-                          strong
-                          routerLink="/signup">
-                      Crear una cuenta nueva
-              </ion-button>
-            </ion-col>
-          </ion-row>
+                <ion-item>
+                  <ion-label>Contraseña</ion-label>
+                  <ion-input name="password"
+                              type="password"
+                              id="inputPassword"
+                              name="password"
+                              [(ngModel)]="user.password"
+                              #password="ngModel"
+                              required></ion-input>
+                </ion-item>
 
-        </ion-grid>
-      </form>
-    
+              </ion-list>
+          </ion-col>
+        </ion-row>
 
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="12" size-md="8" size-lg="6">
+            <ion-button type="submit"
+                        color="warning"
+                        expand="full"
+                        shape="round"
+                        [disabled]="fLogin.invalid">
+              Iniciar sesión 
+            </ion-button>
+          </ion-col>
+          
+        </ion-row>
 
-    </ion-slide>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button shape="round"
+                        color="success"
+                        routerLink="/signup">
+                    Crear una cuenta nueva
+            </ion-button>
+          </ion-col>
+        </ion-row>
 
-
-
-  </ion-slides>
-
-
+      </ion-grid>
+    </form>
+  </div>
 
 </ion-content>
