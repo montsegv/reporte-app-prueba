@@ -1,20 +1,17 @@
 
-
-.mainSlide, .mainSlide ion-slide {
-    width: 100%;
-    height: 100%;
-}
-
 img {
     width: 120px;
 }
 
-.pick-avatar {
-    width: 80px;
-    opacity: 0.3;
+.form-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.pick-avatar-seleccionado {
-    transition: opacity 0.5s linear;
-    opacity: 1 !important;
+ion-button {
+    text-transform: none !important;
+    font-size: 18px;
+    font-weight: bold !important;
 }
