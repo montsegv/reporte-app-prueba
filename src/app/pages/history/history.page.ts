@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
+  myReports:any[] = [];
+
   constructor() { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.myReports.push(1,2,3);
+    }, 2500);
   }
 
 }
