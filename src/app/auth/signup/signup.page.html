@@ -41,7 +41,7 @@
           <ion-col size="1" class="ion-align-self-center"><span class="row-centered">></span></ion-col>
           </ion-row>
       
-          <form (ngSubmit)="registro( fRegistro )" #fRegistro="ngForm">
+          <form (ngSubmit)="signup( fSignup )" #fSignup="ngForm">
               <ion-row>
                   <ion-col>
                       
@@ -51,21 +51,54 @@
                           <ion-label>Email</ion-label>
                           <ion-input name="email" 
                                       type="email"
+                                      id="inputEmail"
+                                      [(ngModel)]="user.email"
+                                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                      #email="ngModel"
                                       required></ion-input>
                           </ion-item>
       
                           <ion-item>
                           <ion-label>Nombre</ion-label>
-                          <ion-input name="nombre"
+                          <ion-input name="name"
                                       type="text"
+                                      id="inputName"
+                                      [(ngModel)]="user.name"
+                                      minlength="3"
+                                      #name="ngModel"
                                       required></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                            <ion-label>Num. de cuenta</ion-label>
+                            <ion-input name="count_num"
+                                        type="number"
+                                        id="inputCountNum"
+                                        [(ngModel)]="user.count_num"
+                                        #count_num="ngModel"
+                                        required></ion-input>
                           </ion-item>
       
                           <ion-item>
-                          <ion-label>Password</ion-label>
+                          <ion-label>Contraseña</ion-label>
                           <ion-input name="password"
                                       type="password"
+                                      id="inputPassword"
+                                      [(ngModel)]="user.password"
+                                      #password="ngModel"
                                       required></ion-input>
+                          </ion-item>
+
+
+
+                          <ion-item>
+                            <ion-label>Repetir contraseña</ion-label>
+                            <ion-input name="passwordconfirm"
+                                        type="password"
+                                        id="inputPasswordConfirm"
+                                        [(ngModel)]="user.passwordconfirm"
+                                        #passwordconfirm="ngModel"
+                                        required></ion-input>
                           </ion-item>
       
                       </ion-list>
@@ -78,7 +111,8 @@
                               color="warning"
                               expand="full"
                               shape="round"
-                              strong>
+                              strong
+                              [disabled]="fSignup.invalid">
                       Crear usuario
                   </ion-button>
               </ion-col>
