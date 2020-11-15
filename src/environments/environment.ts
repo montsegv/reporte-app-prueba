@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  urlserver: 'http://localhost:8888/reportsappserver/'
+  urlserver: 'http://ghapps.com.mx/REPORTSAPPSERVER/'
 };
 
 /*
