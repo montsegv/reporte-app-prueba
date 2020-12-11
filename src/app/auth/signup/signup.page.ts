@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IonSlide } from '@ionic/angular';
-import { AlertController } from '@ionic/angular';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { UsersService } from '../../services/users/users.service';
 

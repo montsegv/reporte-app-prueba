@@ -9,58 +9,75 @@
 <ion-content>
 
   <div class="form-container ion-padding">
-    <ion-list>
+    <form (ngSubmit)="createReport( fCreateReport )" #fCreateReport="ngForm">
 
-      <ion-item>
-        <ion-label position="floating">Escribe tu reporte aquí:</ion-label>
-        <ion-textarea></ion-textarea>
-      </ion-item>
+      <ion-list>
 
-      <ion-item>
-        <ion-label>Aula a reportar: </ion-label>
-        <ion-select  ok-text="Seleccionar" cancel-text="Cancelar">
-          <ion-select-option value="au1">Aula 1</ion-select-option>
-          <ion-select-option value="au2">Aula 2</ion-select-option>
-          <ion-select-option value="au3">Aula 3</ion-select-option>
-          <ion-select-option value="au4">Aula 4</ion-select-option>
-          <ion-select-option value="audi1">Auditorio 1</ion-select-option>
-          <ion-select-option value="audi2">Auditorio 2</ion-select-option>
-          <ion-select-option value="audi3">Auditorio 3</ion-select-option>
-          <ion-select-option value="audi4">Auditorio 4</ion-select-option>
-          <ion-select-option value="LabRed">Lab. Redes</ion-select-option>
-        </ion-select>
-      </ion-item>
+        <ion-item>
+          <ion-label position="floating">Escribe tu reporte aquí:</ion-label>
+          <ion-textarea name="description"
+          type="text"
+          id="inpuDescription"
+          [(ngModel)]="report.description"
+          minlength="5"
+          #description="ngModel"
+          required></ion-textarea>
+        </ion-item>
   
-    </ion-list>
-  
-    <ion-grid>
-      <ion-row>
-        <ion-col size="6">
-          <ion-button expand="full"
-                      shape="round"
-                      color=warning>
-            <ion-icon slot="start" name="camera"></ion-icon>
-            Cámara
-          </ion-button>
-        </ion-col>
-        <ion-col size="6">
-          <ion-button expand="full"
-                      shape="round"
-                      color=warning>
-            <ion-icon slot="start" name="images"></ion-icon>
-            Galería
-          </ion-button>
-        </ion-col>
-      </ion-row>
+        <ion-item>
+          <ion-label>Aula a reportar: </ion-label>
+          <ion-select  ok-text="Aceptar"
+                      cancel-text="Cancelar"
+                      id="inputClassroom"
+                      [(ngModel)]="report.classroom"
+                      name="classroom"
+                      #classroom="ngModel"
+                      required>
+            <ion-select-option *ngFor="let classroom of classrooms" [value]="classroom.id">{{classroom.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
     
-      <ion-row>
-        <ion-col size="12" size-md="6" *ngFor="let image of [1,1,1,1,1,1]">
-          <ion-card>
-            <img src="https://assets.tvo.org/prod/s3fs-public/styles/full_width_1280/public/media-library/classroom.jpg?OZV0m9aO.kvHoHt4NhMhLwZbq1IDq9Tf">
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+      </ion-list>
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button expand="full"
+                        shape="round"
+                        color=warning>
+              <ion-icon slot="start" name="camera"></ion-icon>
+              Cámara
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button expand="full"
+                        shape="round"
+                        color=warning>
+              <ion-icon slot="start" name="images"></ion-icon>
+              Galería
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      
+        <ion-row>
+          <ion-col size="12" size-md="6" *ngFor="let image of [1,1,1,1,1,1]">
+            <ion-card>
+              <img src="https://assets.tvo.org/prod/s3fs-public/styles/full_width_1280/public/media-library/classroom.jpg?OZV0m9aO.kvHoHt4NhMhLwZbq1IDq9Tf">
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button type="submit"
+                  color="warning"
+                  expand="full"
+                  shape="round"
+                  strong
+                  [disabled]="fCreateReport.invalid">
+          Aceptar
+      </ion-button>
+
+    </form>
   </div>
 
 </ion-content>
